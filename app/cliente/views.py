@@ -40,3 +40,9 @@ class ClienteEdit(LoginRequiredMixin,generic.UpdateView):
     def form_valid(self, form):
         form.instance.um = self.request.user.id
         return super().form_valid(form)
+
+class ClienteDel(LoginRequiredMixin, generic.DeleteView):
+    model=Cliente
+    template_name='cliente/cliente_del.html'
+    context_object_name='obj'
+    success_url=reverse_lazy("cliente:cliente_list")
