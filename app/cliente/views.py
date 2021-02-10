@@ -16,3 +16,15 @@ class ClienteView(LoginRequiredMixin,generic.ListView):
     template_name = "cliente/cliente_list.html"
     context_object_name = "obj"
     login_url="bases:login"
+
+class ClienteNew(LoginRequiredMixin,generic.CreateView):
+    model=Cliente
+    template_name="cliente/cliente_form.html"
+    context_object_name = "obj"
+    form_class=ClienteForm
+    success_url=reverse_lazy("cliente:cliente_list") ##se deeb importa reverse_lazy
+    login_url="bases:login"
+
+    def form_valid(self, form):
+        form.instance.uc = self.request.user
+        return super().form_valid(form)

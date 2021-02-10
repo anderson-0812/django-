@@ -1,0 +1,84 @@
+{% extends 'base/base.html' %}
+
+{% block page_content %}
+<form method="POST" class="form-inline">
+    {% csrf_token %}
+    <div class="col-xl-12 col-md-12 mb-12">
+        {% if obj %}
+        <div class="card border-left-warning shadow h-100 py-2">
+        {% else %}
+        <div class="card border-left-success shadow h-100 py-2">
+        {% endif %}
+            <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        {% if obj %} Editar {% else %} Nueva {% endif %} Cliente
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="input-group">
+                                <input type="text" name="CiRuc" maxlength="100" class="form-control" required id="id_CiRuc" placeholder="Cedula Ruc o Pasaporte"
+                                value="{% if obj %} {{ obj.CiRuc }} {% endif %}">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label for="id_esRucPasaporte">Es ruc o pasaporte?</label>
+                                    <input type="checkbox" name="esRucPasaporte" class="form-control" id="id_esRucPasaporte" {% if obj.esRucPasaporte %} checked {% endif %} >
+                                </div>
+                            </div>
+                        </div> 
+                        <!-- nombres -->
+                        <div class="col-12">
+                            <div class="input-group">
+                                <input type="text" name="nombres" maxlength="100" class="form-control" required id="id_nombres" placeholder="Nombres"
+                                value="{% if obj %} {{ obj.nombres }} {% endif %}">
+                            </div>
+                        </div>
+
+                        <!-- apellidos -->
+                        <div class="col-12">
+                            <div class="input-group">
+                                <input type="text" name="apellidos" maxlength="100" class="form-control" required id="id_apellidos" placeholder="Apellidos"
+                                value="{% if obj %} {{ obj.apellidos }} {% endif %}">
+                            </div>
+                        </div>
+
+                        <!-- direccion -->
+                        <div class="col-10">
+                            <div class="input-group">
+                                <input type="text" name="direccion" maxlength="100" class="form-control" required id="id_direccion" placeholder="Direccion"
+                                value="{% if obj %} {{ obj.direccion }} {% endif %}">
+                            </div>
+                        </div>
+
+                        <!-- Estado  -->
+
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label for="id_estado">Estado</label>
+                                <!-- <input type="checkbox" name="estado" class="form-control" id="id_estado" {% if obj.estado %} checked {% endif %} > -->
+                                {{ form.estado }}
+                            </div>
+                        </div>  
+                        <!-- {{ form.as_p }} -->
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span> Guardar</button>
+                            <a href="{% url 'cliente:cliente_list' %}" class="btn btn-success"><span class="fa fa-undo"></span>Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
+{% block js_page %}
+{% endblock %}
