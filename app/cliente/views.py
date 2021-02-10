@@ -28,3 +28,15 @@ class ClienteNew(LoginRequiredMixin,generic.CreateView):
     def form_valid(self, form):
         form.instance.uc = self.request.user
         return super().form_valid(form)
+
+class ClienteEdit(LoginRequiredMixin,generic.UpdateView):
+    model=Cliente
+    template_name="cliente/cliente_form.html"
+    context_object_name = "obj"
+    form_class=ClienteForm
+    success_url=reverse_lazy("cliente:cliente_list")
+    login_url="bases:login"
+
+    def form_valid(self, form):
+        form.instance.um = self.request.user.id
+        return super().form_valid(form)

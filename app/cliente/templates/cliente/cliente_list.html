@@ -45,7 +45,7 @@
                   <td>{{ item.direccion }}</td>
                   <td>{{ item.estado|yesno:"Activo,Inactivo" }}</td>
                   <td>
-                    <a href="" class="btn btn-warning btn-circle" role="button"><i class="far fa-edit"></i></a> 
+                    <a href="{% url 'cliente:cliente_edit' item.id %}" class="btn btn-warning btn-circle" role="button"><i class="far fa-edit"></i></a> 
                     <a href="" class="btn btn-danger btn-circle" role="button"><i class="far fa-trash-alt"></i></a>
                   </td>
               </tr>
