@@ -25,12 +25,14 @@
       {% else %}
       <table class="table table-striped table-hover">
           <thead>
-              <th>Id</th>
-              <th>Ci Ruc</th>
-              <th>Tipo de identificacion</th>
-              <th>Nombres</th>
-              <th>Apellidos</th>
-              <th>Direccion</th>
+              <th>Id_10</th>
+              <th>Ci Ruc_10</th>
+              <th>Tipo de identificacion_10</th>
+              <th>Nombres_10</th>
+              <th>Apellidos_10</th>
+              <th>Direccion_10</th>
+              <th>Representante_10</th>
+              <th>FirmaElectronica_10</th>
               <th>Estado</th>
               <th class="all">Acciones</th>
           </thead>
@@ -43,6 +45,8 @@
                   <td>{{ item.nombres }}</td>
                   <td>{{ item.apellidos }}</td>
                   <td>{{ item.direccion }}</td>
+                  <td>{{ item.representante }}</td>
+                  <td>{{ item.firma_electronica }}</td>
                   <td>{{ item.estado|yesno:"Activo,Inactivo" }}</td>
                   <td>
                     <a href="{% url 'cliente:cliente_edit' item.id %}" class="btn btn-warning btn-circle" role="button"><i class="far fa-edit"></i></a> 

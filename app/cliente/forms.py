@@ -6,7 +6,7 @@ from .models import Cliente
 class ClienteForm(forms.ModelForm):
     class Meta:
         model=Cliente
-        fields = ['CiRuc','nombres','apellidos','direccion','esRucPasaporte','estado']
+        fields = ['CiRuc','nombres','apellidos','direccion','esRucPasaporte','estado', 'representante','firma_electronica']
         labels = {'CiRuc':"Ci-Ruc o pasaporte",
                "estado":"Estado"}
         widget={

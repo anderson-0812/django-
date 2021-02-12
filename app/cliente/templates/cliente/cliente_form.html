@@ -55,6 +55,22 @@
                             </div>
                         </div>
 
+                        <!-- representante -->
+                        <div class="col-10">
+                            <div class="input-group">
+                                <input type="text" name="representante" maxlength="100" class="form-control" required id="id_representante" placeholder="Representante"
+                                value="{% if obj %} {{ obj.representante }} {% endif %}">
+                            </div>
+                        </div>
+
+                        <!-- FirmaElectronica -->
+                        <div class="col-10">
+                            <div class="input-group">
+                                <input type="text" name="firma_electronica" maxlength="100" class="form-control" required id="id_firma_electronica" placeholder="Firma_electronica"
+                                value="{% if obj %} {{ obj.firma_electronica }} {% endif %}">
+                            </div>
+                        </div>
+
                         <!-- Estado  -->
 
                         <div class="col-2">

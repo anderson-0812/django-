@@ -24,6 +24,16 @@ class Cliente(ClaseModelo):
         help_text='Dirección del Cliente',
         unique=False
     )
+    representante = models.CharField(
+        max_length=100,
+        help_text='Representante del Cliente',
+        unique=False
+    )
+    firma_electronica = models.CharField(
+        max_length=100,
+        help_text='Firma Electronia del Cliente',
+        unique=False
+    )
     estado = models.BooleanField(default=True)
     ##cuando se haga referencia a ese modelo django por defecto pone un nombre en hexadecima
     ## cuando se cargue el metodo retorne la descripcion
